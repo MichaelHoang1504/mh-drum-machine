@@ -56,7 +56,7 @@ const sound1: Sound[] = [
   id: "Closed-HH",
   url: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3"
 }];
-const sound2: sound[] = [
+const sound2: Sound[] = [
 {
   keyCode: 81,
   keyTrigger: "Q",
@@ -196,8 +196,8 @@ function App() {
   }
 
   const setKeyVolume = () => {
-    const audios = sounds.map(d => document.getElementById(d.keyTrigger))
-    audios.forEach( audio => {
+    const audios = sounds.map((d: { keyTrigger: string; }) => document.getElementById(d.keyTrigger))
+    audios.forEach( (audio: { volume: number; }) => {
       if(audio){
         audio.volume = volume
       }
